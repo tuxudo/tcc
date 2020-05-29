@@ -1,0 +1,8 @@
+type: scrollbox
+widget_id: tcc-removable-volumes-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceRemovableVolumes
+i18n_title: tcc.RemovableVolumes
+icon: fa-eject
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata

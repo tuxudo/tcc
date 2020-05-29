@@ -1,0 +1,8 @@
+type: scrollbox
+widget_id: tcc-apple-event-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceAppleEvents
+i18n_title: tcc.AppleEvents
+icon: fa-cogs
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata

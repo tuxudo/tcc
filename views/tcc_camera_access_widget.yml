@@ -1,0 +1,8 @@
+type: scrollbox
+widget_id: tcc-camera-access-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceCamera
+i18n_title: tcc.camera
+icon: fa-video-camera
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata

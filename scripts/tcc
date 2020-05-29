@@ -152,17 +152,7 @@ class ReadTCC():
 
 def main():
     """Main"""
-    # Create cache dir if it does not exist
-    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
-    if not os.path.exists(cachedir):
-        os.makedirs(cachedir)
 
-    # Skip manual check
-    if len(sys.argv) > 1:
-        if sys.argv[1] == 'manualcheck':
-            print ('Manual check: skipping')
-            exit(0)
-            
     # Check OS version
     if getOsVersion() < 9:
         print ('TCC module requires 10.9 or higher')
@@ -176,8 +166,9 @@ def main():
     # Get information about the TCC database
     dbs = get_dbs()
     result = process_dbs(dbs)
-    
+
     # Write TCC info results to cache
+    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
     output_plist = os.path.join(cachedir, 'tcc.plist')
     plistlib.writePlist(result, output_plist)
     #print plistlib.writePlistToString(result)

@@ -1,0 +1,17 @@
+i18n_title: tcc.report
+not_null_column: dbpath
+js_link: module/tcc/js/tcc
+table:
+  - column: machine.computer_name
+    i18n_header: listing.computername
+    formatter: clientDetail
+    tab_link: tcc-tab
+  - column: reportdata.serial_number
+    i18n_header: serial
+  - {i18n_header: tcc.client, column: tcc.client}
+  - {i18n_header: tcc.service, column: tcc.service, formatter: formatTCC_service}
+  - {i18n_header: tcc.allowed, column: tcc.allowed, formatter: formatTCCYesNo}
+  - {i18n_header: tcc.last_modified, column: tcc.last_modified, formatter: timestampToMoment}
+  - {i18n_header: tcc.prompt_count, column: tcc.prompt_count}
+  - {i18n_header: tcc.indirect_object_identifier, column: tcc.indirect_object_identifier}
+  - {i18n_header: tcc.dbpath, column: tcc.dbpath}

@@ -1,0 +1,37 @@
+client_tabs:
+    tcc-tab:
+        view: tcc_tab
+        i18n: tcc.tcc
+listings:
+    tcc:
+        view: tcc_listing
+        i18n: tcc.tcc
+reports:
+    tcc_report:
+        view: tcc_report
+        i18n: tcc.report
+widgets:
+    tcc_full_disk_access:
+        view: tcc_full_disk_access_widget
+    tcc_microphone_access:
+        view: tcc_microphone_access_widget
+    tcc_camera_access:
+        view: tcc_camera_access_widget
+    tcc_accessibility:
+        view: tcc_accessibility_widget
+    tcc_address_book:
+        view: tcc_address_book_widget
+    tcc_location:
+        view: tcc_location_widget
+    tcc_documents:
+        view: tcc_documents_widget
+    tcc_desktop:
+        view: tcc_desktop_widget
+    tcc_downloads:
+        view: tcc_downloads_widget
+    tcc_removable_volumes:
+        view: tcc_removable_volumes_widget
+    tcc_post_event:
+        view: tcc_post_event_widget
+    tcc_apple_event:
+        view: tcc_apple_event_widget

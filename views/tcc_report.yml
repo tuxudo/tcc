@@ -1,0 +1,16 @@
+row1:
+  tcc_full_disk_access:
+  tcc_microphone_access:
+  tcc_camera_access:
+row2:
+  tcc_accessibility:
+  tcc_address_book:
+  tcc_location:
+row3:
+  tcc_documents:
+  tcc_desktop:
+  tcc_downloads:
+row4:
+  tcc_removable_volumes:
+  tcc_post_event:
+  tcc_apple_event:

@@ -1,0 +1,8 @@
+type: scrollbox
+widget_id: tcc-documents-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceDocumentsFolder
+i18n_title: tcc.DocumentsFolder
+icon: fa-file-text-o
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata

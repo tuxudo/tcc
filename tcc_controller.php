@@ -7,14 +7,12 @@
  **/
 class Tcc_controller extends Module_controller
 {
-    
-    /*** Protect methods with auth! ****/
     public function __construct()
     {
         // Store module path
         $this->module_path = dirname(__FILE__);
     }
-    
+
     /**
     * Default method
     *
@@ -24,7 +22,35 @@ class Tcc_controller extends Module_controller
     {
         echo "You've loaded the tcc module!";
     }
-    
+
+     /**
+     * Get TCC service data for scroll widget
+     *
+     * @return void
+     * @author tuxudo
+     **/
+    public function get_scroll_widget($service) //kTCCServiceSystemPolicyAllFiles
+    {
+        $sql = "SELECT COUNT(CASE WHEN `service` <> '' AND `service` IS NOT NULL THEN 1 END) AS count, service, client 
+                FROM tcc
+                LEFT JOIN reportdata USING (serial_number)
+                ".get_machine_group_filter()."
+                AND `service` = '".$service."'
+                GROUP BY client
+                ORDER BY count DESC";
+
+        $out = [];
+        $queryobj = new Tcc_model;
+        foreach ($queryobj->query($sql) as $obj) {
+            if ("$obj->count" !== "0") {
+                $obj->service = $obj->service ? $obj->service : 'Unknown';
+                $out[] = $obj;
+            }
+        }
+
+        jsonView($out);
+    }
+
     /**
     * Retrieve data in json format
     *
