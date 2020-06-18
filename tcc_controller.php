@@ -29,7 +29,7 @@ class Tcc_controller extends Module_controller
      * @return void
      * @author tuxudo
      **/
-    public function get_scroll_widget($service) //kTCCServiceSystemPolicyAllFiles
+    public function get_scroll_widget($service)
     {
         $sql = "SELECT COUNT(CASE WHEN `service` <> '' AND `service` IS NOT NULL THEN 1 END) AS count, service, client 
                 FROM tcc
