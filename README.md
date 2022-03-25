@@ -5,9 +5,9 @@ Reports the TCC configuration on the client Mac.
 
 Caveats
 ----
-Starting with 10.14, Apple has restricted access to the TCC.db file used by this module. To use this module on 10.14 or newer, you must use a PPPC profile to allow full disk access for `/usr/bin/python` (not the recommended approach) or [code sign the tcc.py script](https://carlashley.com/2018/09/23/code-signing-scripts-for-pppc-whitelisting/)
+Starting with 10.14, Apple has restricted access to the TCC.db file used by this module. To use this module on 10.14 or newer, you must use a PPPC profile to allow full disk access for `/usr/bin/python` (not the recommended approach) or [code sign the tcc.py script](https://www.carlashley.com/media/pdfs/blogarchive.pdf) (Page 25 of the PDF).
 
-[Rich Trouton also provides some instruction on code signing] (https://derflounder.wordpress.com/2019/04/10/notarizing-automator-applications/#more-10229)
+[Rich Trouton also provides some instruction on code signing](https://derflounder.wordpress.com/2019/04/10/notarizing-automator-applications/#more-10229)
 
 
 Table Schema
