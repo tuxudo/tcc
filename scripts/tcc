@@ -52,11 +52,14 @@ def process_dbs(dbs):
             result['service'] = entry[0]
             result['client'] = entry[1]
             result['client_type'] = entry[2]
-            result['allowed'] = entry[3]
+            if entry[3] >= 2:
+                result['allowed'] = 1
+            else:
+                result['allowed'] = entry[3]
             result['prompt_count'] = entry[4]
 
-            # Process other columns for newer OS versions
-            if getOsVersion() >= 14:
+            # Process other columns for newer OS versions Mojave (Darwin 18)
+            if getDarwinVersion() >= 18:
                 if entry[5] == "UNUSED":
                     result['indirect_object_identifier'] = ""
                 else:
@@ -67,10 +70,11 @@ def process_dbs(dbs):
 
     return output
 
-def getOsVersion():
-    """Returns the minor OS version."""
-    os_version_tuple = platform.mac_ver()[0].split('.')
-    return int(os_version_tuple[1])
+def getDarwinVersion():
+    """Returns the Darwin version."""
+    # Catalina -> 10.15.7 -> 19.6.0 -> 19
+    darwin_version_tuple = platform.release().split('.')
+    return int(darwin_version_tuple[0])
 
 class Sqlite_db():
     '''
@@ -141,8 +145,11 @@ class ReadTCC():
         else:
             self.sqlite.connect(self.tcc_db)
 
-            # Run the proper query for OS version
-            if getOsVersion() >= 14:
+            # Process other columns for newer OS versions Big Sur (Darwin 20)
+            if getDarwinVersion() >= 20:
+                query = self.sqlite.query('SELECT service, client, client_type, auth_value, auth_reason, indirect_object_identifier, last_modified FROM access', fetch=True)
+            # Process other columns for Mojave and Catalina (Darwin 18 - 19)
+            elif getDarwinVersion() >= 18:
                 query = self.sqlite.query('SELECT service, client, client_type, allowed, prompt_count, indirect_object_identifier, last_modified FROM access', fetch=True)
             else:
                 query = self.sqlite.query('SELECT service, client, client_type, allowed, prompt_count FROM access', fetch=True)
@@ -153,9 +160,9 @@ class ReadTCC():
 def main():
     """Main"""
 
-    # Check OS version
-    if getOsVersion() < 9:
-        print ('TCC module requires 10.9 or higher')
+    # Check Darwin version, must be greater than Darwin 13 (Mac 10.9)
+    if getDarwinVersion() < 13:
+        print ('<result>TCC module requires 10.9 or higher</result>')
         exit(0)
 
     # Set the encoding

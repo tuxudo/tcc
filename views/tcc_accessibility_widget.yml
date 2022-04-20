@@ -6,3 +6,4 @@ icon: fa-universal-access
 listing_link: /show/listing/tcc/tcc
 search_key: client
 i18n_empty_result: tcc.nodata
+badge: count

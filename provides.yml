@@ -35,3 +35,7 @@ widgets:
         view: tcc_post_event_widget
     tcc_apple_event:
         view: tcc_apple_event_widget
+    tcc_network_volumes:
+        view: tcc_network_volumes_widget
+    tcc_screen_capture:
+        view: tcc_screen_capture_widget

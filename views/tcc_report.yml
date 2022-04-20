@@ -14,3 +14,6 @@ row4:
   tcc_removable_volumes:
   tcc_post_event:
   tcc_apple_event:
+row5:
+  tcc_network_volumes:
+  tcc_screen_capture:
