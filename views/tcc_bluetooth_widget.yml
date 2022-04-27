@@ -1,0 +1,9 @@
+type: scrollbox
+widget_id: tcc-bluetooth-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceBluetoothAlways
+i18n_title: tcc.BluetoothAlways
+icon: fa-bluetooth
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata
+badge: count

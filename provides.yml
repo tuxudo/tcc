@@ -39,3 +39,19 @@ widgets:
         view: tcc_network_volumes_widget
     tcc_screen_capture:
         view: tcc_screen_capture_widget
+    tcc_bluetooth:
+        view: tcc_bluetooth_widget
+    tcc_calendar:
+        view: tcc_calendar_widget
+    tcc_developer_tool:
+        view: tcc_developer_tool_widget
+    tcc_file_provider:
+        view: tcc_file_provider_widget
+    tcc_focus_status:
+        view: tcc_focus_status_widget
+    tcc_listen_event:
+        view: tcc_listen_event_widget
+    tcc_photos:
+        view: tcc_photos_widget
+    tcc_reminders:
+        view: tcc_reminders_widget

@@ -1,0 +1,9 @@
+type: scrollbox
+widget_id: tcc-listen-event-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceListenEvent
+i18n_title: tcc.ListenEvent
+icon: fa-assistive-listening-systems
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata
+badge: count

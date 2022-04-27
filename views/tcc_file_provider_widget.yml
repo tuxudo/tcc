@@ -1,0 +1,9 @@
+type: scrollbox
+widget_id: tcc-file-provider-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceFileProviderDomain
+i18n_title: tcc.FileProviderDomain
+icon: fa-files-o
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata
+badge: count
