@@ -1,4 +1,4 @@
-#!/usr/local/munkireport/munkireport-python2
+#!/usr/local/munkireport/munkireport-python3
 # Written for MunkiReport by tuxudo
 # Part of this scrpt are from https://github.com/carlashley/tccprofile
 
@@ -25,7 +25,7 @@ def get_dbs():
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     (output, unused_error) = proc.communicate()
     
-    for user in output.split('\n'):
+    for user in output.decode().split('\n'):
         if 'NFSHomeDirectory' in user and '/var/empty' not in user:
             userpath = user.replace("NFSHomeDirectory: ", "")+'/Library/Application Support/com.apple.TCC/TCC.db'
             if os.path.isfile(userpath):
@@ -74,7 +74,8 @@ def getDarwinVersion():
     """Returns the Darwin version."""
     # Catalina -> 10.15.7 -> 19.6.0 -> 19
     darwin_version_tuple = platform.release().split('.')
-    return int(darwin_version_tuple[0])
+    return int(darwin_version_tuple[0]) 
+
 
 class Sqlite_db():
     '''
@@ -140,7 +141,7 @@ class ReadTCC():
 
     def read_db(self):
         if self.tcc_db.startswith('/Library') and os.getuid() != 0:
-            print('You must be root to read {}'.format(self.tcc_db))
+            print(('You must be root to read {}'.format(self.tcc_db)))
             sys.exit(1)
         else:
             self.sqlite.connect(self.tcc_db)
@@ -165,13 +166,8 @@ def main():
 
     # Check Darwin version, must be greater than Darwin 13 (Mac 10.9)
     if getDarwinVersion() < 13:
-        print ('<result>TCC module requires 10.9 or higher</result>')
+        print ('TCC module requires 10.9 or higher')
         exit(0)
-
-    # Set the encoding
-    # The "ugly hack" :P 
-    reload(sys)  
-    sys.setdefaultencoding('utf8')
 
     # Get information about the TCC database
     dbs = get_dbs()
@@ -180,7 +176,11 @@ def main():
     # Write TCC info results to cache
     cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
     output_plist = os.path.join(cachedir, 'tcc.plist')
-    plistlib.writePlist(result, output_plist)
+    try:
+        plistlib.writePlist(result, output_plist)
+    except:
+        with open(output_plist, 'wb') as fp:
+            plistlib.dump(result, fp, fmt=plistlib.FMT_XML)
     #print plistlib.writePlistToString(result)
 
 if __name__ == "__main__":
