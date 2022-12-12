@@ -9,6 +9,8 @@ Starting with 10.14, Apple has restricted access to the TCC.db file used by this
 
 [Rich Trouton also provides some instruction on code signing](https://derflounder.wordpress.com/2019/04/10/notarizing-automator-applications/#more-10229)
 
+You can also use Jamf's Extension Attributes to generate the TCC cache file using the [https://github.com/tuxudo/jamf_tcc](https://github.com/tuxudo/jamf_tcc) module if you do not want to code sign the script.
+
 
 Table Schema
 ----

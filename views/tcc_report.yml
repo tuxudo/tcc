@@ -1,16 +1,30 @@
 row1:
-  tcc_full_disk_access:
   tcc_microphone_access:
   tcc_camera_access:
+  tcc_screen_capture:
 row2:
-  tcc_accessibility:
-  tcc_address_book:
-  tcc_location:
-row3:
-  tcc_documents:
   tcc_desktop:
+  tcc_documents:
   tcc_downloads:
+row3:
+  tcc_location:
+  tcc_full_disk_access:
+  tcc_file_provider:
 row4:
   tcc_removable_volumes:
+  tcc_network_volumes:
+  tcc_bluetooth:
+row5:
+  tcc_listen_event:
   tcc_post_event:
   tcc_apple_event:
+row6:
+  tcc_address_book:
+  tcc_calendar:
+  tcc_reminders:
+row7:
+  tcc_photos:
+  tcc_focus_status:
+  tcc_accessibility:
+row8:
+  tcc_developer_tool:

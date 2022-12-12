@@ -1,8 +1,9 @@
 type: scrollbox
 widget_id: tcc-downloads-widget
-api_url: /module/tcc/get_scroll_widget/kTCCServiceDownloadsFolder
+api_url: /module/tcc/get_scroll_widget/kTCCServiceSystemPolicyDownloadsFolder
 i18n_title: tcc.DownloadsFolder
 icon: fa-download
 listing_link: /show/listing/tcc/tcc
 search_key: client
 i18n_empty_result: tcc.nodata
+badge: count

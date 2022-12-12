@@ -1,0 +1,9 @@
+type: scrollbox
+widget_id: tcc-focus-status-widget
+api_url: /module/tcc/get_scroll_widget/kTCCServiceFocusStatus
+i18n_title: tcc.FocusStatus
+icon: fa-moon-o
+listing_link: /show/listing/tcc/tcc
+search_key: client
+i18n_empty_result: tcc.nodata
+badge: count
