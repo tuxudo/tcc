@@ -65,7 +65,9 @@ class Tcc_controller extends Module_controller
 
         $sql = "SELECT service, client, allowed, prompt_count, indirect_object_identifier, last_modified, dbpath 
                         FROM tcc 
-                        WHERE serial_number = '$serial_number'";
+                        LEFT JOIN reportdata USING (serial_number)
+                        ".get_machine_group_filter()."
+                        AND serial_number = '$serial_number'";
         
         $obj = new View();
         $queryobj = new Tcc_model();
